@@ -1,0 +1,24 @@
+name: 'send-to-synology-chat'
+author: 'dragonish'
+description: 'Send a message to synology chat'
+inputs:
+  webhook-url:
+    description: 'An incoming webhook'
+    required: true
+  message:
+    description: 'A message text'
+    required: false
+    default: ''
+  file-url:
+    description: 'To upload file'
+    required: false
+    default: ''
+outputs:
+  success:
+    description: 'Informs whether sending was successful'
+runs:
+  using: 'node20'
+  main: 'main.js'
+branding:
+  icon: 'message-circle'
+  color: 'green'

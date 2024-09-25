@@ -1,0 +1,30 @@
+{
+  "name": "send-to-synology-chat",
+  "version": "1.0.0",
+  "description": "Send a message to synology chat",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "keywords": [
+    "action"
+  ],
+  "author": "dragonish",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "got": "^12.6.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@types/node": "^22.7.0",
+    "eslint": "^9.11.1",
+    "globals": "^15.9.0",
+    "rollup": "^4.22.4",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0"
+  }
+}
