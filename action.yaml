@@ -18,7 +18,7 @@ outputs:
     description: 'Informs whether sending was successful'
 runs:
   using: 'node20'
-  main: 'main.js'
+  main: 'main.cjs'
 branding:
   icon: 'message-circle'
   color: 'green'
