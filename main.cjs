@@ -35891,8 +35891,13 @@ async function main() {
     const message = coreExports.getInput('message');
     const fileURL = coreExports.getInput('file-url');
     if (!webhookURL) {
-        coreExports.error('The webhook URL is empty!');
+        coreExports.error('The webhook-url is empty!');
         coreExports.setFailed('The webhook URL is empty!');
+        return;
+    }
+    if (!message && !fileURL) {
+        coreExports.warning('message and file-url are both empty!');
+        coreExports.setOutput('success', 'false');
         return;
     }
     coreExports.info('Sending notification.');

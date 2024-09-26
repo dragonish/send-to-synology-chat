@@ -7,8 +7,14 @@ async function main() {
   const fileURL = core.getInput('file-url');
 
   if (!webhookURL) {
-    core.error('The webhook URL is empty!');
+    core.error('The webhook-url is empty!');
     core.setFailed('The webhook URL is empty!');
+    return;
+  }
+
+  if (!message && !fileURL) {
+    core.warning('message and file-url are both empty!');
+    core.setOutput('success', 'false');
     return;
   }
 
