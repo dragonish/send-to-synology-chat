@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import got from 'got';
+import { send } from './sendNotify';
 
 async function main() {
   const webhookURL = core.getInput('webhook-url', { required: true });
@@ -13,22 +13,9 @@ async function main() {
   }
 
   core.info('Sending notification.');
-  const res = await got
-    .post(webhookURL, {
-      retry: {
-        limit: 1,
-      },
-      timeout: {
-        request: 30000,
-      },
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: `payload={"text": "${message}", "file_url": "${fileURL}"}`,
-    })
-    .json<{ success: boolean }>();
+  const state = await send(webhookURL, message, fileURL);
 
-  if (res.success) {
+  if (state) {
     core.info('Message sent successfully.');
     core.setOutput('success', 'true');
   } else {
