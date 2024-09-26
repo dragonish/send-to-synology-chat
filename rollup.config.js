@@ -17,7 +17,9 @@ export default {
     typescript({
       tsconfig: './tsconfig.json',
     }),
-    resolve(),
+    resolve({
+      exportConditions: ['node'],
+    }),
     commonjs(),
     babel({
       babelHelpers: 'bundled',
